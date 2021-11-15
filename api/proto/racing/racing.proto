@@ -11,6 +11,7 @@ service Racing {
   rpc ListRaces(ListRacesRequest) returns (ListRacesResponse) {
     option (google.api.http) = { post: "/v1/list-races", body: "*" };
   }
+  // ListRace returns a single race, given an ID
   rpc ListRace(ListRaceRequest) returns (ListRacesResponse) {
     option (google.api.http) = { get: "/v1/list-race/{id=*}" };
   }
@@ -24,6 +25,7 @@ message ListRacesRequest {
   ListRacesRequestSorting sort = 2;
 }
 
+// Request for ListRace call
 message ListRaceRequest {
   int32 id = 1;
 }

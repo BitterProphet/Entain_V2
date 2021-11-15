@@ -2,7 +2,6 @@ package db
 
 import (
 	"database/sql"
-	"fmt"
 	"github.com/golang/protobuf/ptypes"
 	_ "github.com/mattn/go-sqlite3"
 	"strconv"
@@ -20,6 +19,7 @@ type RacesRepo interface {
 
 	// List will return a list of races.
 	List(filter *racing.ListRacesRequestFilter, sort *racing.ListRacesRequestSorting) ([]*racing.Race, error)
+	// SinglRace will return a single race, dependant on the request ID given.
 	SingleRace(id int32)([]*racing.Race, error)
 }
 
@@ -70,9 +70,10 @@ func (r *racesRepo) SingleRace(id int32) ([]*racing.Race, error) {
 		query string
 		args  []interface{}
 	)
-
+	//retrieve base query
 	query = getRaceQueries()[racesList]
-	fmt.Println(id)
+
+	// append WHERE clause to filter based on request.
 	query = query + " WHERE ID = " + strconv.Itoa(int(id))
 
 	rows, err := r.db.Query(query, args...)
