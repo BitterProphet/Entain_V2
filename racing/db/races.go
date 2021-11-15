@@ -2,8 +2,10 @@ package db
 
 import (
 	"database/sql"
+	"fmt"
 	"github.com/golang/protobuf/ptypes"
 	_ "github.com/mattn/go-sqlite3"
+	"strconv"
 	"strings"
 	"sync"
 	"time"
@@ -18,6 +20,7 @@ type RacesRepo interface {
 
 	// List will return a list of races.
 	List(filter *racing.ListRacesRequestFilter, sort *racing.ListRacesRequestSorting) ([]*racing.Race, error)
+	SingleRace(id int32)([]*racing.Race, error)
 }
 
 type racesRepo struct {
@@ -52,6 +55,25 @@ func (r *racesRepo) List(filter *racing.ListRacesRequestFilter, sort *racing.Lis
 	query = getRaceQueries()[racesList]
 
 	query, args = r.applyFilterAndSort(query, filter, sort)
+
+	rows, err := r.db.Query(query, args...)
+	if err != nil {
+		return nil, err
+	}
+
+	return r.scanRaces(rows)
+}
+
+func (r *racesRepo) SingleRace(id int32) ([]*racing.Race, error) {
+	var (
+		err   error
+		query string
+		args  []interface{}
+	)
+
+	query = getRaceQueries()[racesList]
+	fmt.Println(id)
+	query = query + " WHERE ID = " + strconv.Itoa(int(id))
 
 	rows, err := r.db.Query(query, args...)
 	if err != nil {
