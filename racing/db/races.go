@@ -17,7 +17,7 @@ type RacesRepo interface {
 	Init() error
 
 	// List will return a list of races.
-	List(filter *racing.ListRacesRequestFilter) ([]*racing.Race, error)
+	List(filter *racing.ListRacesRequestFilter, sort *racing.ListRacesRequestSorting) ([]*racing.Race, error)
 }
 
 type racesRepo struct {
@@ -42,7 +42,7 @@ func (r *racesRepo) Init() error {
 	return err
 }
 
-func (r *racesRepo) List(filter *racing.ListRacesRequestFilter) ([]*racing.Race, error) {
+func (r *racesRepo) List(filter *racing.ListRacesRequestFilter, sort *racing.ListRacesRequestSorting) ([]*racing.Race, error) {
 	var (
 		err   error
 		query string
@@ -51,7 +51,7 @@ func (r *racesRepo) List(filter *racing.ListRacesRequestFilter) ([]*racing.Race,
 
 	query = getRaceQueries()[racesList]
 
-	query, args = r.applyFilter(query, filter)
+	query, args = r.applyFilterAndSort(query, filter, sort)
 
 	rows, err := r.db.Query(query, args...)
 	if err != nil {
@@ -61,36 +61,46 @@ func (r *racesRepo) List(filter *racing.ListRacesRequestFilter) ([]*racing.Race,
 	return r.scanRaces(rows)
 }
 
-func (r *racesRepo) applyFilter(query string, filter *racing.ListRacesRequestFilter) (string, []interface{}) {
+func (r *racesRepo) applyFilterAndSort(query string, filter *racing.ListRacesRequestFilter, sort *racing.ListRacesRequestSorting) (string, []interface{}) {
 	var (
 		clauses []string
 		args    []interface{}
 	)
 
-	if filter == nil {
+
+	if (filter  == nil) && (sort == nil) {
 		return query, args
 	}
 
-	if len(filter.MeetingIds) > 0 {
-		clauses = append(clauses, "meeting_id IN ("+strings.Repeat("?,", len(filter.MeetingIds)-1)+"?)")
+	if filter != nil {
+		if len(filter.MeetingIds) > 0 {
+			clauses = append(clauses, "meeting_id IN ("+strings.Repeat("?,", len(filter.MeetingIds)-1)+"?)")
 
-		for _, meetingID := range filter.MeetingIds {
-			args = append(args, meetingID)
+			for _, meetingID := range filter.MeetingIds {
+				args = append(args, meetingID)
+			}
 		}
-	}
 
-	//detect 'visible' boolean from request and filters accordingly
-	if filter.Visible != nil {
-		if filter.GetVisible() == true {
-			clauses = append(clauses,"visible = true")
-		}
-		if filter.GetVisible() == false {
-			clauses = append(clauses,"visible = false")
+		//detect 'visible' boolean from request and filters accordingly
+		if filter.Visible != nil {
+			if filter.GetVisible() == true {
+				clauses = append(clauses, "visible = true")
+			}
+			if filter.GetVisible() == false {
+				clauses = append(clauses, "visible = false")
+			}
 		}
 	}
 
 	if len(clauses) != 0 {
 		query += " WHERE " + strings.Join(clauses, " AND ")
+	}
+
+	if sort != nil { //if 'sort' was found in request
+		if sort.GetField() == "advertisedStartTime" {
+			query = query + "ORDER BY " + "advertised_start_time"
+			query = query + " " + sort.GetOrder()
+		}
 	}
 
 	return query, args
