@@ -24,6 +24,8 @@ message ListRacesResponse {
 // Filter for listing races.
 message ListRacesRequestFilter {
   repeated int64 meeting_ids = 1;
+  // filter for altering the visible clause in query.
+  optional bool visible = 2;
 }
 
 /* Resources */

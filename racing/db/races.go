@@ -79,6 +79,16 @@ func (r *racesRepo) applyFilter(query string, filter *racing.ListRacesRequestFil
 		}
 	}
 
+	//detect 'visible' boolean from request and filters accordingly
+	if filter.Visible != nil {
+		if filter.GetVisible() == true {
+			clauses = append(clauses,"visible = true")
+		}
+		if filter.GetVisible() == false {
+			clauses = append(clauses,"visible = false")
+		}
+	}
+
 	if len(clauses) != 0 {
 		query += " WHERE " + strings.Join(clauses, " AND ")
 	}
