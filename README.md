@@ -3,6 +3,7 @@
 2. We'd like to see the races returned, ordered by their `advertised_start_time`
    1. curl -X "POST" "http://localhost:8000/v1/list-races" -H 'Content-Type: application/json' -d $'{"sort": {"field": "advertisedStartTime"}}
       1. defaults to 'ascending' order
+      2. due to the nature of the logic, extra fields would be very minimal effort to implement. No extra fields were added as it was not required of the task.
    2. curl -X "POST" "http://localhost:8000/v1/list-races" -H 'Content-Type: application/json' -d $'{"sort": {"field": "advertisedStartTime", "order": "desc"}}'
    3. curl -X "POST" "http://localhost:8000/v1/list-races" -H 'Content-Type: application/json' -d $'{"sort": {"field": "advertisedStartTime", "order": "asc"}}'
 
