@@ -2,9 +2,9 @@
 // versions:
 // 	protoc-gen-go v1.27.1
 // 	protoc        v3.17.3
-// source: racing/racing.proto
+// source: sports/sports.proto
 
-package racing
+package sports
 
 import (
 	_ "google.golang.org/genproto/googleapis/api/annotations"
@@ -35,7 +35,7 @@ type ListRacesRequest struct {
 func (x *ListRacesRequest) Reset() {
 	*x = ListRacesRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_racing_racing_proto_msgTypes[0]
+		mi := &file_sports_sports_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -48,7 +48,7 @@ func (x *ListRacesRequest) String() string {
 func (*ListRacesRequest) ProtoMessage() {}
 
 func (x *ListRacesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_racing_racing_proto_msgTypes[0]
+	mi := &file_sports_sports_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -61,7 +61,7 @@ func (x *ListRacesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListRacesRequest.ProtoReflect.Descriptor instead.
 func (*ListRacesRequest) Descriptor() ([]byte, []int) {
-	return file_racing_racing_proto_rawDescGZIP(), []int{0}
+	return file_sports_sports_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *ListRacesRequest) GetFilter() *ListRacesRequestFilter {
@@ -90,7 +90,7 @@ type ListRaceRequest struct {
 func (x *ListRaceRequest) Reset() {
 	*x = ListRaceRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_racing_racing_proto_msgTypes[1]
+		mi := &file_sports_sports_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -103,7 +103,7 @@ func (x *ListRaceRequest) String() string {
 func (*ListRaceRequest) ProtoMessage() {}
 
 func (x *ListRaceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_racing_racing_proto_msgTypes[1]
+	mi := &file_sports_sports_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -116,7 +116,7 @@ func (x *ListRaceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListRaceRequest.ProtoReflect.Descriptor instead.
 func (*ListRaceRequest) Descriptor() ([]byte, []int) {
-	return file_racing_racing_proto_rawDescGZIP(), []int{1}
+	return file_sports_sports_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *ListRaceRequest) GetId() int32 {
@@ -138,7 +138,7 @@ type ListRacesResponse struct {
 func (x *ListRacesResponse) Reset() {
 	*x = ListRacesResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_racing_racing_proto_msgTypes[2]
+		mi := &file_sports_sports_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -151,7 +151,7 @@ func (x *ListRacesResponse) String() string {
 func (*ListRacesResponse) ProtoMessage() {}
 
 func (x *ListRacesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_racing_racing_proto_msgTypes[2]
+	mi := &file_sports_sports_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -164,7 +164,7 @@ func (x *ListRacesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListRacesResponse.ProtoReflect.Descriptor instead.
 func (*ListRacesResponse) Descriptor() ([]byte, []int) {
-	return file_racing_racing_proto_rawDescGZIP(), []int{2}
+	return file_sports_sports_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *ListRacesResponse) GetRaces() []*Race {
@@ -188,7 +188,7 @@ type ListRacesRequestFilter struct {
 func (x *ListRacesRequestFilter) Reset() {
 	*x = ListRacesRequestFilter{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_racing_racing_proto_msgTypes[3]
+		mi := &file_sports_sports_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -201,7 +201,7 @@ func (x *ListRacesRequestFilter) String() string {
 func (*ListRacesRequestFilter) ProtoMessage() {}
 
 func (x *ListRacesRequestFilter) ProtoReflect() protoreflect.Message {
-	mi := &file_racing_racing_proto_msgTypes[3]
+	mi := &file_sports_sports_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -214,7 +214,7 @@ func (x *ListRacesRequestFilter) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListRacesRequestFilter.ProtoReflect.Descriptor instead.
 func (*ListRacesRequestFilter) Descriptor() ([]byte, []int) {
-	return file_racing_racing_proto_rawDescGZIP(), []int{3}
+	return file_sports_sports_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *ListRacesRequestFilter) GetMeetingIds() []int64 {
@@ -246,7 +246,7 @@ type ListRacesRequestSorting struct {
 func (x *ListRacesRequestSorting) Reset() {
 	*x = ListRacesRequestSorting{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_racing_racing_proto_msgTypes[4]
+		mi := &file_sports_sports_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -259,7 +259,7 @@ func (x *ListRacesRequestSorting) String() string {
 func (*ListRacesRequestSorting) ProtoMessage() {}
 
 func (x *ListRacesRequestSorting) ProtoReflect() protoreflect.Message {
-	mi := &file_racing_racing_proto_msgTypes[4]
+	mi := &file_sports_sports_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -272,7 +272,7 @@ func (x *ListRacesRequestSorting) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListRacesRequestSorting.ProtoReflect.Descriptor instead.
 func (*ListRacesRequestSorting) Descriptor() ([]byte, []int) {
-	return file_racing_racing_proto_rawDescGZIP(), []int{4}
+	return file_sports_sports_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *ListRacesRequestSorting) GetField() string {
@@ -314,7 +314,7 @@ type Race struct {
 func (x *Race) Reset() {
 	*x = Race{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_racing_racing_proto_msgTypes[5]
+		mi := &file_sports_sports_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -327,7 +327,7 @@ func (x *Race) String() string {
 func (*Race) ProtoMessage() {}
 
 func (x *Race) ProtoReflect() protoreflect.Message {
-	mi := &file_racing_racing_proto_msgTypes[5]
+	mi := &file_sports_sports_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -340,7 +340,7 @@ func (x *Race) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Race.ProtoReflect.Descriptor instead.
 func (*Race) Descriptor() ([]byte, []int) {
-	return file_racing_racing_proto_rawDescGZIP(), []int{5}
+	return file_sports_sports_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *Race) GetId() int64 {
@@ -392,28 +392,28 @@ func (x *Race) GetStatus() string {
 	return ""
 }
 
-var File_racing_racing_proto protoreflect.FileDescriptor
+var File_sports_sports_proto protoreflect.FileDescriptor
 
-var file_racing_racing_proto_rawDesc = []byte{
-	0x0a, 0x13, 0x72, 0x61, 0x63, 0x69, 0x6e, 0x67, 0x2f, 0x72, 0x61, 0x63, 0x69, 0x6e, 0x67, 0x2e,
-	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x06, 0x72, 0x61, 0x63, 0x69, 0x6e, 0x67, 0x1a, 0x1f, 0x67,
+var file_sports_sports_proto_rawDesc = []byte{
+	0x0a, 0x13, 0x73, 0x70, 0x6f, 0x72, 0x74, 0x73, 0x2f, 0x73, 0x70, 0x6f, 0x72, 0x74, 0x73, 0x2e,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x06, 0x73, 0x70, 0x6f, 0x72, 0x74, 0x73, 0x1a, 0x1f, 0x67,
 	0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2f, 0x74,
 	0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x1a, 0x1c,
 	0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x61, 0x6e, 0x6e, 0x6f, 0x74,
 	0x61, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x7f, 0x0a, 0x10,
 	0x4c, 0x69, 0x73, 0x74, 0x52, 0x61, 0x63, 0x65, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
 	0x12, 0x36, 0x0a, 0x06, 0x66, 0x69, 0x6c, 0x74, 0x65, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b,
-	0x32, 0x1e, 0x2e, 0x72, 0x61, 0x63, 0x69, 0x6e, 0x67, 0x2e, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x61,
+	0x32, 0x1e, 0x2e, 0x73, 0x70, 0x6f, 0x72, 0x74, 0x73, 0x2e, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x61,
 	0x63, 0x65, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x46, 0x69, 0x6c, 0x74, 0x65, 0x72,
 	0x52, 0x06, 0x66, 0x69, 0x6c, 0x74, 0x65, 0x72, 0x12, 0x33, 0x0a, 0x04, 0x73, 0x6f, 0x72, 0x74,
-	0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1f, 0x2e, 0x72, 0x61, 0x63, 0x69, 0x6e, 0x67, 0x2e,
+	0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1f, 0x2e, 0x73, 0x70, 0x6f, 0x72, 0x74, 0x73, 0x2e,
 	0x4c, 0x69, 0x73, 0x74, 0x52, 0x61, 0x63, 0x65, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
 	0x53, 0x6f, 0x72, 0x74, 0x69, 0x6e, 0x67, 0x52, 0x04, 0x73, 0x6f, 0x72, 0x74, 0x22, 0x21, 0x0a,
 	0x0f, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x61, 0x63, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
 	0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x02, 0x69, 0x64,
 	0x22, 0x37, 0x0a, 0x11, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x61, 0x63, 0x65, 0x73, 0x52, 0x65, 0x73,
 	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x22, 0x0a, 0x05, 0x72, 0x61, 0x63, 0x65, 0x73, 0x18, 0x01,
-	0x20, 0x03, 0x28, 0x0b, 0x32, 0x0c, 0x2e, 0x72, 0x61, 0x63, 0x69, 0x6e, 0x67, 0x2e, 0x52, 0x61,
+	0x20, 0x03, 0x28, 0x0b, 0x32, 0x0c, 0x2e, 0x73, 0x70, 0x6f, 0x72, 0x74, 0x73, 0x2e, 0x52, 0x61,
 	0x63, 0x65, 0x52, 0x05, 0x72, 0x61, 0x63, 0x65, 0x73, 0x22, 0x64, 0x0a, 0x16, 0x4c, 0x69, 0x73,
 	0x74, 0x52, 0x61, 0x63, 0x65, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x46, 0x69, 0x6c,
 	0x74, 0x65, 0x72, 0x12, 0x1f, 0x0a, 0x0b, 0x6d, 0x65, 0x65, 0x74, 0x69, 0x6e, 0x67, 0x5f, 0x69,
@@ -441,54 +441,54 @@ var file_racing_racing_proto_rawDesc = []byte{
 	0x62, 0x75, 0x66, 0x2e, 0x54, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x52, 0x13, 0x61,
 	0x64, 0x76, 0x65, 0x72, 0x74, 0x69, 0x73, 0x65, 0x64, 0x53, 0x74, 0x61, 0x72, 0x74, 0x54, 0x69,
 	0x6d, 0x65, 0x12, 0x16, 0x0a, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x18, 0x07, 0x20, 0x01,
-	0x28, 0x09, 0x52, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x32, 0xc3, 0x01, 0x0a, 0x06, 0x52,
-	0x61, 0x63, 0x69, 0x6e, 0x67, 0x12, 0x5b, 0x0a, 0x09, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x61, 0x63,
-	0x65, 0x73, 0x12, 0x18, 0x2e, 0x72, 0x61, 0x63, 0x69, 0x6e, 0x67, 0x2e, 0x4c, 0x69, 0x73, 0x74,
-	0x52, 0x61, 0x63, 0x65, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x19, 0x2e, 0x72,
-	0x61, 0x63, 0x69, 0x6e, 0x67, 0x2e, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x61, 0x63, 0x65, 0x73, 0x52,
+	0x28, 0x09, 0x52, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x32, 0xc3, 0x01, 0x0a, 0x06, 0x53,
+	0x70, 0x6f, 0x72, 0x74, 0x73, 0x12, 0x5b, 0x0a, 0x09, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x61, 0x63,
+	0x65, 0x73, 0x12, 0x18, 0x2e, 0x73, 0x70, 0x6f, 0x72, 0x74, 0x73, 0x2e, 0x4c, 0x69, 0x73, 0x74,
+	0x52, 0x61, 0x63, 0x65, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x19, 0x2e, 0x73,
+	0x70, 0x6f, 0x72, 0x74, 0x73, 0x2e, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x61, 0x63, 0x65, 0x73, 0x52,
 	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x19, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x13, 0x22,
 	0x0e, 0x2f, 0x76, 0x31, 0x2f, 0x6c, 0x69, 0x73, 0x74, 0x2d, 0x72, 0x61, 0x63, 0x65, 0x73, 0x3a,
 	0x01, 0x2a, 0x12, 0x5c, 0x0a, 0x08, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x61, 0x63, 0x65, 0x12, 0x17,
-	0x2e, 0x72, 0x61, 0x63, 0x69, 0x6e, 0x67, 0x2e, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x61, 0x63, 0x65,
-	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x19, 0x2e, 0x72, 0x61, 0x63, 0x69, 0x6e, 0x67,
+	0x2e, 0x73, 0x70, 0x6f, 0x72, 0x74, 0x73, 0x2e, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x61, 0x63, 0x65,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x19, 0x2e, 0x73, 0x70, 0x6f, 0x72, 0x74, 0x73,
 	0x2e, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x61, 0x63, 0x65, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
 	0x73, 0x65, 0x22, 0x1c, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x16, 0x12, 0x14, 0x2f, 0x76, 0x31, 0x2f,
 	0x6c, 0x69, 0x73, 0x74, 0x2d, 0x72, 0x61, 0x63, 0x65, 0x2f, 0x7b, 0x69, 0x64, 0x3d, 0x2a, 0x7d,
-	0x42, 0x09, 0x5a, 0x07, 0x2f, 0x72, 0x61, 0x63, 0x69, 0x6e, 0x67, 0x62, 0x06, 0x70, 0x72, 0x6f,
+	0x42, 0x09, 0x5a, 0x07, 0x2f, 0x73, 0x70, 0x6f, 0x72, 0x74, 0x73, 0x62, 0x06, 0x70, 0x72, 0x6f,
 	0x74, 0x6f, 0x33,
 }
 
 var (
-	file_racing_racing_proto_rawDescOnce sync.Once
-	file_racing_racing_proto_rawDescData = file_racing_racing_proto_rawDesc
+	file_sports_sports_proto_rawDescOnce sync.Once
+	file_sports_sports_proto_rawDescData = file_sports_sports_proto_rawDesc
 )
 
-func file_racing_racing_proto_rawDescGZIP() []byte {
-	file_racing_racing_proto_rawDescOnce.Do(func() {
-		file_racing_racing_proto_rawDescData = protoimpl.X.CompressGZIP(file_racing_racing_proto_rawDescData)
+func file_sports_sports_proto_rawDescGZIP() []byte {
+	file_sports_sports_proto_rawDescOnce.Do(func() {
+		file_sports_sports_proto_rawDescData = protoimpl.X.CompressGZIP(file_sports_sports_proto_rawDescData)
 	})
-	return file_racing_racing_proto_rawDescData
+	return file_sports_sports_proto_rawDescData
 }
 
-var file_racing_racing_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
-var file_racing_racing_proto_goTypes = []interface{}{
-	(*ListRacesRequest)(nil),        // 0: racing.ListRacesRequest
-	(*ListRaceRequest)(nil),         // 1: racing.ListRaceRequest
-	(*ListRacesResponse)(nil),       // 2: racing.ListRacesResponse
-	(*ListRacesRequestFilter)(nil),  // 3: racing.ListRacesRequestFilter
-	(*ListRacesRequestSorting)(nil), // 4: racing.ListRacesRequestSorting
-	(*Race)(nil),                    // 5: racing.Race
+var file_sports_sports_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+var file_sports_sports_proto_goTypes = []interface{}{
+	(*ListRacesRequest)(nil),        // 0: sports.ListRacesRequest
+	(*ListRaceRequest)(nil),         // 1: sports.ListRaceRequest
+	(*ListRacesResponse)(nil),       // 2: sports.ListRacesResponse
+	(*ListRacesRequestFilter)(nil),  // 3: sports.ListRacesRequestFilter
+	(*ListRacesRequestSorting)(nil), // 4: sports.ListRacesRequestSorting
+	(*Race)(nil),                    // 5: sports.Race
 	(*timestamppb.Timestamp)(nil),   // 6: google.protobuf.Timestamp
 }
-var file_racing_racing_proto_depIdxs = []int32{
-	3, // 0: racing.ListRacesRequest.filter:type_name -> racing.ListRacesRequestFilter
-	4, // 1: racing.ListRacesRequest.sort:type_name -> racing.ListRacesRequestSorting
-	5, // 2: racing.ListRacesResponse.races:type_name -> racing.Race
-	6, // 3: racing.Race.advertised_start_time:type_name -> google.protobuf.Timestamp
-	0, // 4: racing.Racing.ListRaces:input_type -> racing.ListRacesRequest
-	1, // 5: racing.Racing.ListRace:input_type -> racing.ListRaceRequest
-	2, // 6: racing.Racing.ListRaces:output_type -> racing.ListRacesResponse
-	2, // 7: racing.Racing.ListRace:output_type -> racing.ListRacesResponse
+var file_sports_sports_proto_depIdxs = []int32{
+	3, // 0: sports.ListRacesRequest.filter:type_name -> sports.ListRacesRequestFilter
+	4, // 1: sports.ListRacesRequest.sort:type_name -> sports.ListRacesRequestSorting
+	5, // 2: sports.ListRacesResponse.races:type_name -> sports.Race
+	6, // 3: sports.Race.advertised_start_time:type_name -> google.protobuf.Timestamp
+	0, // 4: sports.Sports.ListRaces:input_type -> sports.ListRacesRequest
+	1, // 5: sports.Sports.ListRace:input_type -> sports.ListRaceRequest
+	2, // 6: sports.Sports.ListRaces:output_type -> sports.ListRacesResponse
+	2, // 7: sports.Sports.ListRace:output_type -> sports.ListRacesResponse
 	6, // [6:8] is the sub-list for method output_type
 	4, // [4:6] is the sub-list for method input_type
 	4, // [4:4] is the sub-list for extension type_name
@@ -496,13 +496,13 @@ var file_racing_racing_proto_depIdxs = []int32{
 	0, // [0:4] is the sub-list for field type_name
 }
 
-func init() { file_racing_racing_proto_init() }
-func file_racing_racing_proto_init() {
-	if File_racing_racing_proto != nil {
+func init() { file_sports_sports_proto_init() }
+func file_sports_sports_proto_init() {
+	if File_sports_sports_proto != nil {
 		return
 	}
 	if !protoimpl.UnsafeEnabled {
-		file_racing_racing_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+		file_sports_sports_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListRacesRequest); i {
 			case 0:
 				return &v.state
@@ -514,7 +514,7 @@ func file_racing_racing_proto_init() {
 				return nil
 			}
 		}
-		file_racing_racing_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+		file_sports_sports_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListRaceRequest); i {
 			case 0:
 				return &v.state
@@ -526,7 +526,7 @@ func file_racing_racing_proto_init() {
 				return nil
 			}
 		}
-		file_racing_racing_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+		file_sports_sports_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListRacesResponse); i {
 			case 0:
 				return &v.state
@@ -538,7 +538,7 @@ func file_racing_racing_proto_init() {
 				return nil
 			}
 		}
-		file_racing_racing_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+		file_sports_sports_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListRacesRequestFilter); i {
 			case 0:
 				return &v.state
@@ -550,7 +550,7 @@ func file_racing_racing_proto_init() {
 				return nil
 			}
 		}
-		file_racing_racing_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+		file_sports_sports_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListRacesRequestSorting); i {
 			case 0:
 				return &v.state
@@ -562,7 +562,7 @@ func file_racing_racing_proto_init() {
 				return nil
 			}
 		}
-		file_racing_racing_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+		file_sports_sports_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Race); i {
 			case 0:
 				return &v.state
@@ -575,24 +575,24 @@ func file_racing_racing_proto_init() {
 			}
 		}
 	}
-	file_racing_racing_proto_msgTypes[3].OneofWrappers = []interface{}{}
-	file_racing_racing_proto_msgTypes[4].OneofWrappers = []interface{}{}
+	file_sports_sports_proto_msgTypes[3].OneofWrappers = []interface{}{}
+	file_sports_sports_proto_msgTypes[4].OneofWrappers = []interface{}{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_racing_racing_proto_rawDesc,
+			RawDescriptor: file_sports_sports_proto_rawDesc,
 			NumEnums:      0,
 			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_racing_racing_proto_goTypes,
-		DependencyIndexes: file_racing_racing_proto_depIdxs,
-		MessageInfos:      file_racing_racing_proto_msgTypes,
+		GoTypes:           file_sports_sports_proto_goTypes,
+		DependencyIndexes: file_sports_sports_proto_depIdxs,
+		MessageInfos:      file_sports_sports_proto_msgTypes,
 	}.Build()
-	File_racing_racing_proto = out.File
-	file_racing_racing_proto_rawDesc = nil
-	file_racing_racing_proto_goTypes = nil
-	file_racing_racing_proto_depIdxs = nil
+	File_sports_sports_proto = out.File
+	file_sports_sports_proto_rawDesc = nil
+	file_sports_sports_proto_goTypes = nil
+	file_sports_sports_proto_depIdxs = nil
 }

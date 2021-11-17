@@ -1,0 +1,71 @@
+syntax = "proto3";
+package sports;
+
+option go_package = "/sports";
+
+import "google/protobuf/timestamp.proto";
+import "google/api/annotations.proto";
+
+service Sports {
+  // ListRaces returns a list of all races.
+  rpc ListRaces(ListRacesRequest) returns (ListRacesResponse) {
+    option (google.api.http) = { post: "/v1/list-races", body: "*" };
+  }
+  // ListRace returns a single race, given an ID
+  rpc ListRace(ListRaceRequest) returns (ListRacesResponse) {
+    option (google.api.http) = { get: "/v1/list-race/{id=*}" };
+  }
+}
+
+/* Requests/Responses */
+
+// Request for ListRaces call.
+message ListRacesRequest {
+  ListRacesRequestFilter filter = 1;
+  ListRacesRequestSorting sort = 2;
+}
+
+// Request for ListRace call
+message ListRaceRequest {
+  int32 id = 1;
+}
+
+// Response to ListRaces call.
+message ListRacesResponse {
+  repeated Race races = 1;
+}
+
+// Filter for listing races.
+message ListRacesRequestFilter {
+  repeated int64 meeting_ids = 1;
+  // filter for altering the visible clause in query.
+  optional bool visible = 2;
+}
+
+// Sorting for listing races.
+message ListRacesRequestSorting {
+  // field to sort by
+  optional string field = 1;
+  // filter for altering the visible clause in query.
+  optional string order = 2;
+}
+
+/* Resources */
+
+// A race resource.
+message Race {
+  // ID represents a unique identifier for the race.
+  int64 id = 1;
+  // MeetingID represents a unique identifier for the races meeting.
+  int64 meeting_id = 2;
+  // Name is the official name given to the race.
+  string name = 3;
+  // Number represents the number of the race.
+  int64 number = 4;
+  // Visible represents whether or not the race is visible.
+  bool visible = 5;
+  // AdvertisedStartTime is the time the race is advertised to run.
+  google.protobuf.Timestamp advertised_start_time = 6;
+  // 'Status' to indicate if the 'advertised_start_time' has passed
+  string status = 7;
+}
