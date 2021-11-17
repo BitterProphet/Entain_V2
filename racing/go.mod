@@ -1,4 +1,4 @@
-module git.neds.sh/matty/entain/racing
+module github.com/BitterProphet/Entain_V2
 
 go 1.16
 
