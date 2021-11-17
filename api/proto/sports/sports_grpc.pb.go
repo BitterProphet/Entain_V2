@@ -18,10 +18,8 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type SportsClient interface {
-	// ListRaces returns a list of all races.
-	ListRaces(ctx context.Context, in *ListRacesRequest, opts ...grpc.CallOption) (*ListRacesResponse, error)
-	// ListRace returns a single race, given an ID
-	ListRace(ctx context.Context, in *ListRaceRequest, opts ...grpc.CallOption) (*ListRacesResponse, error)
+	// ListEvents returns a list of all events.
+	ListSports(ctx context.Context, in *ListSportsRequest, opts ...grpc.CallOption) (*ListSportsResponse, error)
 }
 
 type sportsClient struct {
@@ -32,18 +30,9 @@ func NewSportsClient(cc grpc.ClientConnInterface) SportsClient {
 	return &sportsClient{cc}
 }
 
-func (c *sportsClient) ListRaces(ctx context.Context, in *ListRacesRequest, opts ...grpc.CallOption) (*ListRacesResponse, error) {
-	out := new(ListRacesResponse)
-	err := c.cc.Invoke(ctx, "/sports.Sports/ListRaces", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sportsClient) ListRace(ctx context.Context, in *ListRaceRequest, opts ...grpc.CallOption) (*ListRacesResponse, error) {
-	out := new(ListRacesResponse)
-	err := c.cc.Invoke(ctx, "/sports.Sports/ListRace", in, out, opts...)
+func (c *sportsClient) ListSports(ctx context.Context, in *ListSportsRequest, opts ...grpc.CallOption) (*ListSportsResponse, error) {
+	out := new(ListSportsResponse)
+	err := c.cc.Invoke(ctx, "/sports.Sports/ListSports", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -54,10 +43,8 @@ func (c *sportsClient) ListRace(ctx context.Context, in *ListRaceRequest, opts .
 // All implementations must embed UnimplementedSportsServer
 // for forward compatibility
 type SportsServer interface {
-	// ListRaces returns a list of all races.
-	ListRaces(context.Context, *ListRacesRequest) (*ListRacesResponse, error)
-	// ListRace returns a single race, given an ID
-	ListRace(context.Context, *ListRaceRequest) (*ListRacesResponse, error)
+	// ListEvents returns a list of all events.
+	ListSports(context.Context, *ListSportsRequest) (*ListSportsResponse, error)
 	mustEmbedUnimplementedSportsServer()
 }
 
@@ -65,11 +52,8 @@ type SportsServer interface {
 type UnimplementedSportsServer struct {
 }
 
-func (UnimplementedSportsServer) ListRaces(context.Context, *ListRacesRequest) (*ListRacesResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ListRaces not implemented")
-}
-func (UnimplementedSportsServer) ListRace(context.Context, *ListRaceRequest) (*ListRacesResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ListRace not implemented")
+func (UnimplementedSportsServer) ListSports(context.Context, *ListSportsRequest) (*ListSportsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListSports not implemented")
 }
 func (UnimplementedSportsServer) mustEmbedUnimplementedSportsServer() {}
 
@@ -84,38 +68,20 @@ func RegisterSportsServer(s grpc.ServiceRegistrar, srv SportsServer) {
 	s.RegisterService(&Sports_ServiceDesc, srv)
 }
 
-func _Sports_ListRaces_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ListRacesRequest)
+func _Sports_ListSports_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListSportsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SportsServer).ListRaces(ctx, in)
+		return srv.(SportsServer).ListSports(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/sports.Sports/ListRaces",
+		FullMethod: "/sports.Sports/ListSports",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SportsServer).ListRaces(ctx, req.(*ListRacesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Sports_ListRace_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ListRaceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SportsServer).ListRace(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/sports.Sports/ListRace",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SportsServer).ListRace(ctx, req.(*ListRaceRequest))
+		return srv.(SportsServer).ListSports(ctx, req.(*ListSportsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -128,12 +94,8 @@ var Sports_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*SportsServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "ListRaces",
-			Handler:    _Sports_ListRaces_Handler,
-		},
-		{
-			MethodName: "ListRace",
-			Handler:    _Sports_ListRace_Handler,
+			MethodName: "ListSports",
+			Handler:    _Sports_ListSports_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

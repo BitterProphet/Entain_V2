@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"flag"
+	"fmt"
 	"log"
 	"net/http"
 
@@ -13,16 +14,19 @@ import (
 )
 
 var (
-	apiEndpoint  = flag.String("api-endpoint", "localhost:8000", "API endpoint")
-	grpcRacingEndpoint = flag.String("grpc-racing-endpoint", "localhost:9000", "gRPC racing server endpoint")
-	grpcSportsEndpoint = flag.String("grpc-sports-endpoint", "localhost:10000", "gRPC sports server endpoint")
+	apiEndpoint = flag.String("api-endpoint", "localhost:8000",
+		"API endpoint")
+	racingGrpcEndpoint = flag.String("racing-grpc-endpoint", "localhost:9000",
+		"gRPC server endpoint for racing service")
+	sportsGrpcEndpoint = flag.String("sports-grpc-endpoint", "localhost:10000",
+		"gRPC server endpoint for sports service")
 )
 
 func main() {
 	flag.Parse()
 
 	if err := run(); err != nil {
-		log.Printf("failed running api server: %s\n", err)
+		log.Fatalf("failed running api server: %s", err)
 	}
 }
 
@@ -35,7 +39,7 @@ func run() error {
 	if err := racing.RegisterRacingHandlerFromEndpoint(
 		ctx,
 		mux,
-		*grpcRacingEndpoint,
+		*racingGrpcEndpoint,
 		[]grpc.DialOption{grpc.WithInsecure()},
 	); err != nil {
 		return err
@@ -44,13 +48,13 @@ func run() error {
 	if err := sports.RegisterSportsHandlerFromEndpoint(
 		ctx,
 		mux,
-		*grpcRacingEndpoint,
+		*sportsGrpcEndpoint,
 		[]grpc.DialOption{grpc.WithInsecure()},
 	); err != nil {
 		return err
 	}
 
-	log.Printf("API server listening on: %s\n", *apiEndpoint)
+	fmt.Println("API server listening on: %s", *apiEndpoint)
 
 	return http.ListenAndServe(*apiEndpoint, mux)
 }

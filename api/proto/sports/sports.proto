@@ -7,43 +7,39 @@ import "google/protobuf/timestamp.proto";
 import "google/api/annotations.proto";
 
 service Sports {
-  // ListRaces returns a list of all races.
-  rpc ListRaces(ListRacesRequest) returns (ListRacesResponse) {
-    option (google.api.http) = { post: "/v1/list-races", body: "*" };
-  }
-  // ListRace returns a single race, given an ID
-  rpc ListRace(ListRaceRequest) returns (ListRacesResponse) {
-    option (google.api.http) = { get: "/v1/list-race/{id=*}" };
+  // ListEvents returns a list of all events.
+  rpc ListSports(ListSportsRequest) returns (ListSportsResponse) {
+    option (google.api.http) = { post: "/v1/getListOfSports", body: "*" };
   }
 }
 
 /* Requests/Responses */
 
-// Request for ListRaces call.
-message ListRacesRequest {
-  ListRacesRequestFilter filter = 1;
-  ListRacesRequestSorting sort = 2;
+// Request for ListSports call.
+message ListSportsRequest {
+  ListSportsRequestFilter filter = 1;
+  ListSportsRequestSorting sort = 2;
 }
 
-// Request for ListRace call
-message ListRaceRequest {
+// Request for ListSport call
+message ListSportRequest {
   int32 id = 1;
 }
 
-// Response to ListRaces call.
-message ListRacesResponse {
-  repeated Race races = 1;
+// Response to ListSports call.
+message ListSportsResponse {
+  repeated Sport sports = 1;
 }
 
-// Filter for listing races.
-message ListRacesRequestFilter {
+// Filter for listing sports.
+message ListSportsRequestFilter {
   repeated int64 meeting_ids = 1;
   // filter for altering the visible clause in query.
   optional bool visible = 2;
 }
 
-// Sorting for listing races.
-message ListRacesRequestSorting {
+// Sorting for listing sports.
+message ListSportsRequestSorting {
   // field to sort by
   optional string field = 1;
   // filter for altering the visible clause in query.
@@ -52,19 +48,19 @@ message ListRacesRequestSorting {
 
 /* Resources */
 
-// A race resource.
-message Race {
-  // ID represents a unique identifier for the race.
+// A sport resource.
+message Sport {
+  // ID represents a unique identifier for the sport.
   int64 id = 1;
-  // MeetingID represents a unique identifier for the races meeting.
+  // MeetingID represents a unique identifier for the sports meeting.
   int64 meeting_id = 2;
-  // Name is the official name given to the race.
+  // Name is the official name given to the sport.
   string name = 3;
-  // Number represents the number of the race.
+  // Number represents the number of the sport.
   int64 number = 4;
-  // Visible represents whether or not the race is visible.
+  // Visible represents whether or not the sport is visible.
   bool visible = 5;
-  // AdvertisedStartTime is the time the race is advertised to run.
+  // AdvertisedStartTime is the time the sport is advertised to run.
   google.protobuf.Timestamp advertised_start_time = 6;
   // 'Status' to indicate if the 'advertised_start_time' has passed
   string status = 7;

@@ -1,4 +1,4 @@
-module github.com/BitterProphet/Entain_V2
+module github.com/BitterProphet/Entain_V2/racing
 
 go 1.16
 
