@@ -27,8 +27,14 @@ message ListSportsResponse {
 message Sport {
   // ID represents a unique identifier for the sport.
   int64 id = 1;
-  // Name is the official name given to the sport.
+  // Name is used to identify the sport event easily; combining the sport, teams and time of event.
   string name = 2;
+  // Name of the type of game
+  string game = 3;
+  // Name of the first team playing this event
+  string team_1 = 4;
+  // Name of the second team playing this event
+  string team_2 = 5;
   // AdvertisedStartTime is the time the sport is advertised to run.
-  google.protobuf.Timestamp advertised_start_time = 3;
+  google.protobuf.Timestamp advertised_start_time = 6;
 }

@@ -76,6 +76,7 @@ func (x *ListRacesRequest) GetSort() *ListRacesRequestSorting {
 	return nil
 }
 
+// Request for ListRace call
 type ListRaceRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
