@@ -12,53 +12,21 @@ service Sports {
 
 /* Requests/Responses */
 
-message ListSportsRequest {
-  ListSportsRequestFilter filter = 1;
-  ListSportsRequestSorting sort = 2;
-}
+message ListSportsRequest {}
 
-// Request for ListSport call
-message ListSportRequest {
-  int32 id = 1;
-}
 
 // Response to ListSports call.
 message ListSportsResponse {
   repeated Sport sports = 1;
 }
 
-// Filter for listing sports.
-message ListSportsRequestFilter {
-  repeated int64 meeting_ids = 1;
-  // filter for altering the visible clause in query.
-  optional bool visible = 2;
-}
-
-// Sorting for listing sports.
-message ListSportsRequestSorting {
-  // field to sort by
-  optional string field = 1;
-  // filter for altering the visible clause in query.
-  optional string order = 2;
-}
-
 /* Resources */
-
-// A sport resource.
 message Sport {
   // ID represents a unique identifier for the sport.
   int64 id = 1;
-  // MeetingID represents a unique identifier for the sports meeting.
-  int64 meeting_id = 2;
   // Name is the official name given to the sport.
-  string name = 3;
-  // Number represents the number of the sport.
-  int64 number = 4;
-  // Visible represents whether or not the sport is visible.
-  bool visible = 5;
+  string name = 2;
   // AdvertisedStartTime is the time the sport is advertised to run.
-  google.protobuf.Timestamp advertised_start_time = 6;
-  // 'Status' to indicate if the 'advertised_start_time' has passed
-  string status = 7;
+  google.protobuf.Timestamp advertised_start_time = 3;
 }
 
