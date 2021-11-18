@@ -1,6 +1,7 @@
 package service
 
 import (
+	"fmt"
 	"github.com/BitterProphet/Entain_V2/sports/db"
 	"github.com/BitterProphet/Entain_V2/sports/proto/sports"
 	"golang.org/x/net/context"
@@ -22,10 +23,12 @@ func NewSportsService(sportsRepo db.SportsRepo) Sports {
 }
 
 func (s *sportsService) ListSports(ctx context.Context, in *sports.ListSportsRequest) (*sports.ListSportsResponse, error) {
-	listOfSports, err := s.sportsRepo.List(in.Filter)
+	listOfSports, err := s.sportsRepo.List()
 	if err != nil {
 		return nil, err
 	}
 
 	return &sports.ListSportsResponse{Sports: listOfSports}, nil
+	fmt.Println("successful response")
+	return nil, err
 }
