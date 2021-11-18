@@ -59,7 +59,7 @@ func (r *sportsRepo) List() ([]*sports.Sport, error) {
 }
 
 
-
+//scanSports will convert the SQL statement into an array of sports.
 func (m *sportsRepo) scanSports(
 	rows *sql.Rows,
 ) ([]*sports.Sport, error) {

@@ -6,6 +6,7 @@ import (
 	"syreclabs.com/go/faker"
 )
 
+// create table and fill with data if it doesn't exist in the .db file
 func (r *sportsRepo) seed() error {
 	statement, err := r.db.Prepare(
 		`CREATE TABLE IF NOT EXISTS SPORTS (id INTEGER PRIMARY KEY, 
